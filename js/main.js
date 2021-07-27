@@ -77,7 +77,7 @@ function load() {
     $('#amazon_img').html(amazonImg[amazonId]);
     $('#amazon_text').html(amazonText[amazonId]);
 
-    fetch('./freesms.json')
+    fetch('./js/freesms.json')
     .then(response => response.json())
     .then(data => {
       var smsTable = null;
@@ -85,7 +85,11 @@ function load() {
       if (!$.fn.dataTable.isDataTable('#sms_req')) {
         smsTable = $('#sms_req').DataTable({
           data: [],
-          columns: [{
+          columns: [
+            {
+              title: 'Trend'
+            },
+            {
               title: 'URL'
             },
             {
@@ -114,31 +118,36 @@ function load() {
           columnDefs: [{
               width: '20%',
               targets: 0,
-              className: 'dt-body-left'
-            },
-            {
-              width: '20%',
-              targets: 1,
               className: 'dt-body-center'
             },
             {
-              width: '20%',
+              width: '16%',
+              targets: 1,
+              className: 'dt-body-left'
+            },
+            {
+              width: '16%',
               targets: 2,
               className: 'dt-body-center'
             },
             {
-              width: '20%',
+              width: '16%',
               targets: 3,
               className: 'dt-body-center'
             },
             {
-              width: '20%',
+              width: '16%',
               targets: 4,
               className: 'dt-body-center'
             },
             {
-              width: '20%',
-              targets: [0, 1, 2, 3, 4],
+              width: '16%',
+              targets: 5,
+              className: 'dt-body-center'
+            },
+            {
+              width: '16.7%',
+              targets: [0, 1, 2, 3, 4, 5],
               className: 'dt-head-center'
             }
           ]
@@ -161,6 +170,7 @@ function load() {
         }
 
         $('#sms_req').DataTable().row.add([
+          '<img src="./images/' + i + '.png">',
           sms.url,
           sms.number,
           sms.avail,
@@ -174,3 +184,4 @@ function load() {
     })
   });
 }
+

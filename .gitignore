@@ -1,2 +1,4 @@
-./report.js
-./report.sh
+report.js
+report.sh
+node_modules/
+package.*

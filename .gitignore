@@ -1,4 +1,5 @@
 report.js
 report.sh
 node_modules/
-package.*
+package.json
+package-lock.json
